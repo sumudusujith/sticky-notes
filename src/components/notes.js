@@ -1,31 +1,44 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import { Box, Button } from "rebass";
-//import { Input } from "@rebass/forms";
-//import { RebassHeading } from "./RebassHeading";
+
 
 //function
-export default function AddNoteForm(props) {
+export const NoteForm = (props) => {
     const [form, setForm] = useState({
         title: "",
         text: ""
-    });
-
-    function handleChange(e) {
+      });
+    
+      function handleChange(e) {
         const { name, value } = e.target;
-
+    
         let newForm = { ...form };
         newForm[name] = value;
-
+    
         setForm(newForm);
-    }
+      }
+    
+  
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.addNote(form);
-        setForm({ title: "", text: "" });
-    }
+    const {
+        handleSubmit,
+        pristine,
+        reset,
+        submitting,
+        configLogin,
+        login_SubHeader,
+        login_Header,
+        isLoading,
+        isError,
+        //form
+    } = props;
+
+
+        
+    // }
     return (
-        <form onSubmit={handleSubmit}>
+        //<form onSubmit={handleSubmit}>
+        <Box>
             <h4>Add a Note</h4>
             <div>
                 <label>Title</label>
@@ -46,8 +59,27 @@ export default function AddNoteForm(props) {
                 />
             </div>
             <div>
-                <button className="success">Add Note + </button>
+                <button type="submit" disabled={pristine || submitting}>Add Note</button>
+                <button type="button" disabled={pristine || submitting} onClick={reset}>
+                    Delete
+                </button>
             </div>
-        </form>
-    );
-};
+            </Box>
+       // </form>
+    )
+}
+
+// const mapStateToProps = (state) => {
+//     return {
+        
+//     };
+// };
+
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//     return {
+//           }
+        
+//     };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
