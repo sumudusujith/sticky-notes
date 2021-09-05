@@ -6,14 +6,14 @@ import {
     Link,
     Redirect,
 } from "react-router-dom";
-import AddNoteForm from "./components/notes";
+import {NoteForm} from "./components/notes";
 
 export const Routes = () => {
     return (
         <div>
             <Router>
                 <Switch>
-                    <Route exact path={"/notes"} component={AddNoteForm} />
+                    <Route exact path={"/notes"} component={NoteForm} />
                     <Redirect exact from="/" to="/notes" />
                 </Switch>
             </Router>
