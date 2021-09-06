@@ -1,17 +1,9 @@
-import { combineReducers } from "redux"; // first pakcge imoprt
-import exampleReducer, { loginReducer, sagaLoginReducer, form_DashboardReducer,configValuesReducer ,errorReducer} from "./loginReducer";
-import { reducer as formReducer } from 'redux-form';
-
+import { combineReducers } from "redux";
+import { addNoteReducer, configValuesReducer } from "./noteReducer";
 
 const rootReducer = combineReducers({
-
-    //example: exampleReducer,
-    //login: loginReducer,
-    //sagaloginNew: sagaLoginReducer,
-    form: formReducer,
-    //form_DashboardReducer: form_DashboardReducer,
-    //configValuesReducer: configValuesReducer,
-    //errorReducer:errorReducer,
+  notes: addNoteReducer,
+  configValuesReducer: configValuesReducer,
 });
 
 export default rootReducer;
