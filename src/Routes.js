@@ -1,25 +1,24 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Redirect,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
 } from "react-router-dom";
-import AddNoteForm from "./components/notes";
+
+import NotesAdd from "./components/NotesAdd";
+import { ROUTES } from "./routesClass";
 
 export const Routes = () => {
-    return (
-        <div>
-            <Router>
-                <Switch>
-                    <Route exact path={"/notes"} component={AddNoteForm} />
-                    <Redirect exact from="/" to="/notes" />
-                </Switch>
-            </Router>
-        </div>
-
-    );
-
-
+  return (
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path={ROUTES.ROUTE_TO_NOTES_ADD} component={NotesAdd} />
+          <Redirect exact from="/" to="/notesadd" />
+        </Switch>
+      </Router>
+    </div>
+  );
 };
+
