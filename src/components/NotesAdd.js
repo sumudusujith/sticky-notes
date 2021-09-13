@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Button, Flex } from "rebass";
 import { Input, Textarea } from "@rebass/forms";
 import { connect } from "react-redux";
+import AddIcon from "@material-ui/icons/Add";
 
 import { RebassLabel } from "./RebassLabel";
 
@@ -43,11 +44,20 @@ const NotesAdd = (props) => {
 
     <Flex
 
-      alignItems='center'
-      flexDirection='column'
-      backgroundColor='#e4edf7'
+      //alignItems='center'
+      //flexDirection='column'
+     // backgroundColor='#e4edf7'
+      sx={{
+        flexWrap: 'wrap'
+      }}
 
     >
+      <Box
+    sx={{
+      p: 3,
+      flexGrow: 1,
+      flexBasis: 256
+    }}>
       <Box>
         {!isLoading ? (
           <>
@@ -135,7 +145,16 @@ const NotesAdd = (props) => {
             Clear
           </Button>
         </Box>
+        </Box>
+        <Box
+    sx={{
+      p: 3,
+      flexGrow: 99999,
+      flexBasis: 0,
+      minWidth: 320
+    }}>
         <NoteList />
+        </Box>
       </Box>
 
     </Flex>
