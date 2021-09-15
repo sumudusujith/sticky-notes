@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { useState,  } from "react";
-import { addNote, updateNote, } from "../redux/actions";
+import {updateNote, } from "../redux/actions";
 
 
 const Main = ({ activeNote, onUpdateNote, setActiveNote, edit, noteId }) => {
@@ -8,13 +8,14 @@ const Main = ({ activeNote, onUpdateNote, setActiveNote, edit, noteId }) => {
   const [noteValue, setNoteValue] = useState("");
 
   function updateNote() {
-    console.log("ADD");
+    console.log("NOTE added");
     edit(activeNote.noteId, noteHeader, noteValue);
     setNoteHeader("");
     setNoteValue("");
     setActiveNote(false);
   }
   function clearNote() {
+    console.log("Values cleared");
     setNoteHeader("");
     setNoteValue("");
   }

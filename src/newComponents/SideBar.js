@@ -3,7 +3,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { connect } from "react-redux";
 import { deleteNote, getconfigAction } from "../redux/actions";
 import date from "date-and-time";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Sidebar = ({
   notes,
@@ -14,7 +14,7 @@ const Sidebar = ({
   onDeleteNote,
   activeNote,
   setActiveNote,
-  getNoteData, 
+  getNoteData,
   isLoading
 }) => {
 
@@ -36,14 +36,15 @@ const Sidebar = ({
             "loading..."
           )}
         </h1>
+        {/* adding new empty note */}
         <AddIcon className="app-sidebar-header-add" onClick={onAddNote} />
       </div>
 
       <div className="app-sidebar-notes">
+        {/* map note id to side bar */}
         {notes.map((note) => (
           <div
             key={note.noteId}
-            className="app-sidebar-note"
             className={`app-sidebar-note ${note.noteId === activeNote.noteId && "active"
               }`}
             onClick={() => setActiveNote(note)}
@@ -79,8 +80,10 @@ function mapDispatchToProps(dispatch) {
         console.log("action works!");
       }));
     },
-    remove: (noteId) => dispatch(deleteNote(noteId)),
+    remove: (noteId) => dispatch(deleteNote(noteId, () => {
+      console.log("Note deleted!");
+    })),
+
   };
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

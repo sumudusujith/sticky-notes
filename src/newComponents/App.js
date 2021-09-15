@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 
 const App = (props) => {
   const [activeNote, setActiveNote] = useState(false);
+  // initial state is set to false. it include initial value when the component first renders.
   // Add a new note
   const onAddNote = () => {
     // update the list of notes
