@@ -16,7 +16,7 @@ import {
   }
   
   export function updateNote(noteId, noteHeader, noteValue) {
-    console.log("update values", noteId, noteHeader, noteValue);
+    console.log("UPDATE Values", noteId, noteHeader, noteValue);
     return {
       type: EDIT_NOTE_ACTION,
       payload: {
@@ -28,6 +28,7 @@ import {
   }
   
   export function deleteNote(noteId) {
+    console.log("Note Deleted", noteId,);
     return {
       type: DELETE_NOTE_ACTION,
       noteId,

@@ -38,7 +38,7 @@ export function* addNoteSaga({ payload }) {
     );
     yield put({ type: ADD_NOTE_ACTION_SUCCESS, payload: note });
   } catch (e) {
-    console.log("Error occurred ", e.message);
+    //console.log("Error occurred ", e.message);
   }
 }
 
@@ -61,7 +61,7 @@ export function* deleteNoteSaga({ payload }) {
     const note = yield call(deleteNote, payload.noteId);
     yield put({ type: DELETE_NOTE_ACTION_SUCCESS, payload: note });
   } catch (e) {
-    console.log("Error occurred ", e.message);
+    //console.log("Error occurred ", e.message);
   }
 }
 
