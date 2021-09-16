@@ -15,10 +15,6 @@ const configUser = {
 
 };
 
-const errorData = {
-  showError: false,
-  errorMessage: ''
-};
 
 export function addNoteReducer(state = initialState, action) {
   switch (action.type) {
@@ -32,23 +28,7 @@ export function addNoteReducer(state = initialState, action) {
           noteValue: action.payload.noteValue,
         },
       ];
-    // case EDIT_NOTE_ACTION:
-    //   return state.map((note) => note.noteId === action.payload.noteId
-    //     //  { ...state, 
-    //     //   editing: !note.editing } :note
-    //   );
-    // case EDIT_NOTE_ACTION:
-    // return state.map((note, index) => {
-    //   if(index === action.payload.noteId) {
-    //     return {
-    //       ...note,
-    //       noteId: action.Id
-    //     }
-    //   } 
-    //   else {
-    //     return note
-    //   }
-    // })
+  
      case EDIT_NOTE_ACTION:
        const newValue = state.findIndex(
        (note)=> note.noteId === action.payload.noteId
@@ -56,36 +36,7 @@ export function addNoteReducer(state = initialState, action) {
        const newOb = [...state]
        newOb[newValue]=action.payload
        return newOb
-      // state[newValue]=action.payload;
-
-    // return state.map((note, index) => {
-    //   if(index === action.payload.noteId) {
-    //     return {
-    //       ...note,
-    //       noteId: action.Id
-    //     }
-    //   } 
-    //   else {
-    //     return note
-    //   }
-    // })
-    // case EDIT_NOTE_ACTION:
-    // var newList = [...state.items];
-    //         var index = newList.indexOf(state.item);
-    //         if (index !== -1) {
-    //             newList[index].value = state.title;
-    //             return {
-    //                 ...state,
-    //                 title: "",
-    //                 edit: false,
-    //                 items: newList,
-    //                 error: ""
-    //             }
-    //         } else {
-    //             return {
-    //                 ...state
-    //             }
-    //         }
+  
 
     case DELETE_NOTE_ACTION:
       return state.filter((notes) => notes.noteId !== action.noteId);
