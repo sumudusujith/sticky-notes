@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import App from "./newComponents/App";
 
-//import NotesAdd from "./newComponents/NotesAdd";
+
 import { ROUTES } from "./routesClass";
 
 
@@ -16,7 +16,7 @@ export const Routes = () => {
     <div>
       <Router>
         <Switch>
-          {/* <Route exact path={ROUTES.ROUTE_TO_NOTES_ADD} component={NotesAdd} /> */}
+          
            <Route exact path={ROUTES.ROUTE_TO_NOTES_ADD} component={App} /> 
           <Redirect exact from="/" to="/notesadd" />
         </Switch>
