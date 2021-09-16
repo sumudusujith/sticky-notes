@@ -8,10 +8,7 @@ import React, { useEffect } from "react";
 const Sidebar = ({
   notes,
   remove,
-  filterednotes,
-  setFilteredNotes,
   onAddNote,
-  onDeleteNote,
   activeNote,
   setActiveNote,
   getNoteData,

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { useState,  } from "react";
-import {updateNote, } from "../redux/actions";
+import { useState, } from "react";
+import { updateNote, } from "../redux/actions";
 
 
 const Main = ({ activeNote, onUpdateNote, setActiveNote, edit, noteId }) => {
@@ -19,13 +19,7 @@ const Main = ({ activeNote, onUpdateNote, setActiveNote, edit, noteId }) => {
     setNoteHeader("");
     setNoteValue("");
   }
-  // const onEditField = (key, value) => {
-  //   onUpdateNote({
-  //     ...activeNote,
-  //     [key]: value,
-  //     lastModified: Date.now(),
-  //   });
-  // };
+
 
   if (!activeNote)
     return <div className="no-active-note">No note selected</div>;
@@ -39,7 +33,7 @@ const Main = ({ activeNote, onUpdateNote, setActiveNote, edit, noteId }) => {
           placeholder="Title"
           value={noteHeader}
           onChange={(e) => setNoteHeader(e.target.value)}
-        //autoFocus
+
         />
         <textarea
           id="body"
@@ -69,17 +63,14 @@ const mapStateToProps = (state) => {
   return {
     noteId: state.notes.noteId,
     notes: state.notes,
-    // Main_Header: state.configValuesReducer.configResponse?.Main_Header,
-    //isLoading: state.configValuesReducer.isLoading,
+
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // addNewNote: (noteId, noteHeader, noteValue) => {
-    //   dispatch(addNote(noteId, noteHeader, noteValue));
-    // },
-        edit: (noteId, noteHeader, noteValue) =>
+
+    edit: (noteId, noteHeader, noteValue) =>
       dispatch(updateNote(noteId, noteHeader, noteValue)),
   };
 };
